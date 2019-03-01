@@ -102,7 +102,12 @@ No need to import anything, just style as you want.
 
 ## Credits
 
-Icons from **\_\_**<br>
 Created by [@benrogerson](https://twitter.com/benrogerson) @ [Simple](<[Simple](https://simple.com.au)>)
 
 Swiff has been agency battletested by [Simple](https://simple.com.au) who specialise in Craft CMS websites.
+
+## TODO:
+
+-   [ ] Build icons into a sprite
+-   [ ] Add basic styles
+-   [ ] Transpile SCSS to CSS
