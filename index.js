@@ -20,7 +20,7 @@ export default class SunshineDust {
         };
         // Combine configs
         this.config = Object.assign({}, defaults, config);
-        console.log(this.config);
+
         this.isStarted = false;
         this.init();
     }
@@ -30,6 +30,8 @@ export default class SunshineDust {
 
         // Get the weather data
         const weatherData = await getRequest(this.apiUrl);
+        if (!weatherData)
+            return console.error('Error connecting to the apiUrl');
 
         // Get the source day data from the weather forecast
         const { days: weatherDataDays } = weatherData.forecasts.weather;
@@ -74,35 +76,35 @@ export default class SunshineDust {
 
 // Map the precisCode to an icon
 const iconMap = new Map([
-    ['fine', 'wi-day-sunny'],
-    ['mostly-fine', 'wi-day-cloudy'],
-    ['high-cloud', 'wi-day-cloudy-high'],
-    ['partly-cloudy', 'wi-day-cloudy'],
-    ['mostly-cloudy', 'wi-day-cloudy'],
-    ['cloudy', 'wi-cloudy'],
-    ['overcast', 'wi-cloudy'],
-    ['shower-or-two', 'wi-showers'],
-    ['chance-shower-fine', 'wi-day-showers'],
-    ['chance-shower-cloud', 'wi-showers'],
-    ['drizzle', 'wi-sprinkle'],
-    ['few-showers', 'wi-showers'],
-    ['showers-rain', 'wi-rain'],
-    ['heavy-showers-rain', 'wi-rain'],
-    ['chance-thunderstorm-fine', 'wi-day-storm-showers'],
-    ['chance-thunderstorm-cloud', 'wi-storm-showers'],
-    ['chance-thunderstorm-showers', 'wi-storm-showers'],
-    ['thunderstorm', 'wi-thunderstorm'],
-    ['chance-snow-fine', 'wi-day-snow-wind'],
-    ['chance-snow-cloud', 'wi-snow'],
-    ['snow-and-rain', 'wi-rain-mix'],
-    ['light-snow', 'wi-snow'],
-    ['snow', 'wi-snow'],
-    ['heavy-snow', 'wi-snow'],
-    ['wind', 'wi-strong-wind'],
-    ['frost', 'wi-snowflake-cold'],
-    ['fog', 'wi-fog'],
-    ['hail', 'wi-hail'],
-    ['dust', 'wi-dust'],
+    ['fine', 'day-sunny'],
+    ['mostly-fine', 'day-cloudy'],
+    ['high-cloud', 'day-cloudy-high'],
+    ['partly-cloudy', 'day-cloudy'],
+    ['mostly-cloudy', 'day-cloudy'],
+    ['cloudy', 'cloudy'],
+    ['overcast', 'cloudy'],
+    ['shower-or-two', 'showers'],
+    ['chance-shower-fine', 'day-showers'],
+    ['chance-shower-cloud', 'showers'],
+    ['drizzle', 'sprinkle'],
+    ['few-showers', 'showers'],
+    ['showers-rain', 'rain'],
+    ['heavy-showers-rain', 'rain'],
+    ['chance-thunderstorm-fine', 'day-storm-showers'],
+    ['chance-thunderstorm-cloud', 'storm-showers'],
+    ['chance-thunderstorm-showers', 'storm-showers'],
+    ['thunderstorm', 'thunderstorm'],
+    ['chance-snow-fine', 'day-snow-wind'],
+    ['chance-snow-cloud', 'snow'],
+    ['snow-and-rain', 'rain-mix'],
+    ['light-snow', 'snow'],
+    ['snow', 'snow'],
+    ['heavy-snow', 'snow'],
+    ['wind', 'strong-wind'],
+    ['frost', 'snowflake-cold'],
+    ['fog', 'fog'],
+    ['hail', 'hail'],
+    ['dust', 'dust'],
 ]);
 
 // The template for the day(s) container
