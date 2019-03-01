@@ -115,7 +115,11 @@ const templateContainer = data => `
 // The template for each day
 const templateDay = data => `
     <div class="${data.blockName}__day">
-        <div class="${data.blockName}__icon">${data.icon}</div>
+        <div class="${data.blockName}__icon">
+            <svg xmlns:xlink="http://www.w3.org/1999/xlink"><use xlink:href="{{ "#weather-icon-${
+                data.icon
+            }" }}"/></svg>
+        </div>
         <div class="${data.blockName}__min">Min ${data.min}</div>
         <div class="${data.blockName}__max">Max ${data.max}</div>
     </div>
