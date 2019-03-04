@@ -2,13 +2,13 @@
 
 Weather Wonka displays data from the [Willy Weather API](https://www.willyweather.com.au/info/api.html) in your site or app.
 
-[![default visuals](https://raw.githubusercontent.com/simple-integrated-marketing/weather-wonka/master/screenie.gif)](https://raw.githubusercontent.com/simple-integrated-marketing/weather-wonka/master/screenie.gif)
+[![default visuals](https://raw.githubusercontent.com/simple-integrated-marketing/weather-wonka/master/screenie.png)](https://raw.githubusercontent.com/simple-integrated-marketing/weather-wonka/master/screenie.png)
 
 ## Getting started
 
 ### 1. Import plugin and configure it
 
-The default template creates [BEM](http://getbem.com/introduction/]) based markup.<br/>
+The default template creates [BEM](http://getbem.com/introduction]) based markup.<br/>
 If you'd like to adjust the markup then choose the 'b' option below.
 
 #### a) Use the default templates
