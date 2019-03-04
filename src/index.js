@@ -172,7 +172,7 @@ const templateDay = (data, wrapTag) => `
 // Fetch a response and convert to JSON
 const getRequest = async url => {
     let request;
-    await fetch(url)
+    await fetch(url, { mode: 'cors' })
         .then(response => {
             request = response.json();
         })
