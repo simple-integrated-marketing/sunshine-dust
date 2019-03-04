@@ -26,6 +26,7 @@ import WeatherWonka from 'weather-wonka';
 const el = document.querySelector('[data-weather]');
 
 // The url for the weather data api
+// Cors issues when testing locally? Prefix url with 'https://cors.io/?'
 const apiUrl =
     'https://api.willyweather.com.au/v2/[YOUR_WILLY_WEATHER_KEY]/locations/8672/weather.json?forecasts=weather';
 
@@ -84,38 +85,43 @@ const templateContainer = data => (`
 const templateDay = data => (`
     <div class="${data.blockName}__item">
         <div class="${data.blockName}__day">${data.dayName}</div>
-        <div class="${data.blockName}__icon">${data.icon}</div>
+        <svg
+            class="${data.blockName}__icon"
+            data-label="${data.precis}"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            aria-hidden="true"
+        >
+            <use xlink:href="#${data.icon}"></use>
+        </svg>
         <div class="${data.blockName}__precis">${data.precis}</div>
-        <div class="${data.blockName}__max">${data.max}</div>
-        <div class="${data.blockName}__min">${data.min}</div>
+        <div class="${data.blockName}__min">Min ${data.min}</div>
+        <div class="${data.blockName}__max">Max ${data.max}</div>
     </div>
 `);
+
+// Customise the day names
+const dayNames = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
 
 // The element where the html will be added
 const el = document.querySelector('[data-weather]');
 
 // The url for the weather data api
-const apiUrl =
-  "https://api.willyweather.com.au/v2/[YOUR_WILLY_WEATHER_KEY]/locations/8672/weather.json?forecasts=weather";
-
-// Customise the day names
-const dayNames = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+// Cors issues when testing locally? Prefix url with 'https://cors.io/?'
+const apiUrl = "https://api.willyweather.com.au/v2/[YOUR_WILLY_WEATHER_KEY]/locations/8672/weather.json?forecasts=weather";
 
 // Start the plugin
 new WeatherWonka(el, apiUrl, {
-    {
-        blockName: 'weather',
-        days: 7,
-        templateContainer,
-        templateDay,
-        dayNames,
-    }
+    blockName: 'weather',
+    days: 7,
+    templateContainer,
+    templateDay,
+    dayNames,
 });
 ```
 
-### 3. Add the selector to your markup
+### 3. Add the weather container to your markup
 
-Add the selector to an element and the inner html will be replaced with the weather markup.<br/>
+Add the container with the data-weather selector and the inner html will be replaced with the weather markup.<br/>
 In this case, we'll be linking to a weather page when the weather is selected and if JavaScript is disabled, the user will see a plain link instead:
 
 ```html
@@ -124,22 +130,25 @@ In this case, we'll be linking to a weather page when the weather is selected an
 
 ### 4. Style the markup
 
-Either use the default scss styles as a starting point:
+#### SCSS
+
+Either use the default SCSS styles as a starting point:
 
 ```scss
 @import 'weather-wonka/src/styles';
 ```
 Or write custom styles for to suit the markup.
 
-## Icons
+#### Icons
 
-We've included [some icons to get you started](https://raw.githubusercontent.com/simple-integrated-marketing/weather-wonka/master/icon-examples.zip) but you can define your own custom icons.<br>
-The default templates assume you're using a SVG icon sprite within your markup.
+**The default templates assume you're using a SVG icon sprite within your markup.**<br>
+We've included [some icons (sprite included) to get you started](https://raw.githubusercontent.com/simple-integrated-marketing/weather-wonka/master/icon-examples.zip) but you can define your own custom icons.
 
 ## Demo
 
-Add your Willy Weather API key within `weather-wonka/src/demo.html` then run `npm start`.
-
+1. Add your Willy Weather API key within `weather-wonka/src/demo.html`
+2. `npm run build`
+3. `npm start`
 
 ## Credits
 
