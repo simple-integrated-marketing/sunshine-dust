@@ -1,19 +1,30 @@
 {
-	"name": "sunshine-dust",
-	"version": "1.0.0",
-	"description": "",
-	"main": "index.js",
-	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
-	},
-	"keywords": [],
-	"author": "",
-	"license": "ISC",
-	"prettier": {
-		"trailingComma": "es5",
-		"useTabs": false,
-		"tabWidth": 4,
-		"semi": true,
-		"singleQuote": true
-	}
+    "name": "weather-wonka",
+    "version": "1.0.0",
+    "description": "",
+    "main": "dist/index.js",
+    "scripts": {
+        "prebuild": "rm -rf dist",
+        "start": "parcel src/demo.html src/styles.scss src/index.js",
+        "build": "parcel build src/styles.scss src/index.js --no-content-hash  --no-source-maps",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "prettier": {
+        "trailingComma": "es5",
+        "useTabs": false,
+        "tabWidth": 4,
+        "semi": true,
+        "singleQuote": true
+    },
+    "dependencies": {},
+    "devDependencies": {
+        "@babel/core": "^7.3.4",
+        "@babel/plugin-transform-runtime": "^7.3.4",
+        "@babel/preset-env": "^7.3.4",
+        "parcel-bundler": "^1.11.0",
+        "sass": "^1.17.2"
+    }
 }

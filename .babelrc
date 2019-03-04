@@ -1,0 +1,21 @@
+{
+    "presets": [
+        [
+            "@babel/preset-env",
+            {
+                "shippedProposals": true,
+                "forceAllTransforms": true
+            }
+        ]
+    ],
+    "compact": true,
+    "comments": false,
+    "plugins": [
+        [
+            "@babel/plugin-transform-runtime",
+            {
+                "regenerator": true
+            }
+        ]
+    ]
+}
