@@ -93,7 +93,7 @@ const apiUrl =
   "https://api.willyweather.com.au/v2/[YOUR_WILLY_WEATHER_KEY]/locations/8672/weather.json?forecasts=weather";
 
 // Customise the day names
-const dayNameDefaults = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+const dayNames = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
 
 // Start the plugin
 new WeatherWonka(el, apiUrl, {
@@ -102,7 +102,7 @@ new WeatherWonka(el, apiUrl, {
         days: 7,
         templateContainer,
         templateDay,
-        dayNameDefaults,
+        dayNames,
     }
 });
 ```
