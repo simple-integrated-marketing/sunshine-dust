@@ -1,12 +1,18 @@
 # Weather Wonka
 
+[![npm version](https://badge.fury.io/js/weather-wonka.svg)](https://www.npmjs.com/package/weather-wonka)
+
 Weather Wonka displays data from the [Willy Weather API](https://www.willyweather.com.au/info/api.html) in your site or app.
 
 [![default visuals](https://raw.githubusercontent.com/simple-integrated-marketing/weather-wonka/master/screenie.png)](https://raw.githubusercontent.com/simple-integrated-marketing/weather-wonka/master/screenie.png)
 
 ## Getting started
 
-### 1. Import plugin and configure it
+### 1. Install the plugin
+
+```npm install weather-wonka```
+
+### 2. Import plugin into JS and configure it
 
 The default template creates [BEM](http://getbem.com/introduction]) based markup.<br/>
 If you'd like to adjust the markup then choose the 'b' option below.
@@ -107,7 +113,7 @@ new WeatherWonka(el, apiUrl, {
 });
 ```
 
-### 2. Add the selector to your markup
+### 3. Add the selector to your markup
 
 Add the selector to an element and the inner html will be replaced with the weather markup.<br/>
 In this case, we'll be linking to a weather page when the weather is selected and if JavaScript is disabled, the user will see a plain link instead:
@@ -116,7 +122,7 @@ In this case, we'll be linking to a weather page when the weather is selected an
 <a href="#" data-weather>View the weather</a>
 ```
 
-### 3. Style the markup
+### 4. Style the markup
 
 Either use the default scss styles as a starting point:
 
