@@ -27,8 +27,7 @@ const el = document.querySelector('[data-weather]');
 
 // The url for the weather data api
 // Cors issues when testing locally? Prefix url with 'https://cors.io/?'
-const apiUrl =
-    'https://api.willyweather.com.au/v2/[YOUR_WILLY_WEATHER_KEY]/locations/8672/weather.json?forecasts=weather';
+const apiUrl = 'https://api.willyweather.com.au/v2/[YOUR_WILLY_WEATHER_KEY]/locations/8672/weather.json?forecasts=weather';
 
 // Start the plugin
 new WeatherWonka(el, apiUrl, { days: 1 });
@@ -37,36 +36,34 @@ new WeatherWonka(el, apiUrl, { days: 1 });
 This config will produce the following markup:
 
 ```html
-<a href="#" data-weather="">
-    <div class="weather weather--1day">
-        <div class="weather__item">
-            <div class="weather__title">
-                Monday
+<div class="weather weather--1day">
+    <div class="weather__item">
+        <div class="weather__title">
+            Monday
+        </div>
+        <div class="weather__details">
+            <div class="weather__icon" data-label="Mostly sunny">
+                <svg
+                    class="weather__svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                    aria-hidden="true"
+                >
+                    <use xlink:href="#weather-icon--day-cloudy"></use>
+                </svg>
             </div>
-            <div class="weather__details">
-                <div class="weather__icon" data-label="Mostly sunny">
-                    <svg
-                        class="weather__svg"
-                        xmlns:xlink="http://www.w3.org/1999/xlink"
-                        aria-hidden="true"
-                    >
-                        <use xlink:href="#weather-icon--day-cloudy"></use>
-                    </svg>
+            <div class="weather__min-max">
+                <div class="weather__temp weather__temp--min">
+                    <abbr class="weather__label" title="Minimum">Min</abbr>
+                    <span class="weather__value">17</span>
                 </div>
-                <div class="weather__min-max">
-                    <div class="weather__temp weather__temp--min">
-                        <abbr class="weather__label" title="Minimum">Min</abbr>
-                        <span class="weather__value">17</span>
-                    </div>
-                    <div class="weather__temp weather__temp--max">
-                        <abbr class="weather__label" title="Maximum">Max</abbr>
-                        <span class="weather__value">31</span>
-                    </div>
+                <div class="weather__temp weather__temp--max">
+                    <abbr class="weather__label" title="Maximum">Max</abbr>
+                    <span class="weather__value">31</span>
                 </div>
             </div>
         </div>
     </div>
-</a>
+</div>
 ```
 
 #### b) Define custom templates
