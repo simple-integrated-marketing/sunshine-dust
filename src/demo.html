@@ -22,8 +22,8 @@
         // The element where we'll add the weather
         const el = document.querySelector('[data-weather]');
         // The url for the weather data api
-        const testKey = 'YOUR_WILLY_WEATHER_KEY';
-        const corsProxy = 'https://thingproxy.freeboard.io/fetch/';
+        const testKey = '[YOUR_WILLY_WEATHER_KEY]';
+        const corsProxy = 'https://cors.io/?';
         const apiUrl = `${corsProxy}https://api.willyweather.com.au/v2/${testKey}/locations/8672/weather.json?forecasts=weather`;
         // Start the plugin
         new WeatherWonka(el, apiUrl, {
