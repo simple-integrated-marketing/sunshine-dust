@@ -6,18 +6,20 @@ Weather Wonka displays data from the [Willy Weather API](https://www.willyweathe
 
 [![default visuals](https://raw.githubusercontent.com/simple-integrated-marketing/weather-wonka/master/screenie.png)](https://raw.githubusercontent.com/simple-integrated-marketing/weather-wonka/master/screenie.png)
 
+## Features
+
+🐳 Lightweight JavaScript (1.93 kB gzipped)<br>
+☀️ Customisable 1 to 7 day forecast markup<br>
+🏁 [BEM](http://getbem.com/introduction]) classes in default templates<br>
+☔️ Weather icon sprite included
+
 ## Getting started
 
-### 1. Install the plugin
+### 1. Install the plugin:
 
 ```npm install weather-wonka```
 
-### 2. Import plugin into JS and configure it
-
-The default template creates [BEM](http://getbem.com/introduction]) based markup.<br/>
-If you'd like to adjust the markup then choose the 'b' option below.
-
-#### a) Use the default templates
+### 2a. Basic configuration:
 
 ```js
 import WeatherWonka from 'weather-wonka';
@@ -33,7 +35,7 @@ const apiUrl = 'https://api.willyweather.com.au/v2/[YOUR_WILLY_WEATHER_KEY]/loca
 new WeatherWonka(el, apiUrl, { days: 1 });
 ```
 
-This config will produce the following markup:
+This will produce the following markup:
 
 ```html
 <div class="weather weather--1day">
@@ -66,7 +68,7 @@ This config will produce the following markup:
 </div>
 ```
 
-#### b) Define custom templates
+### 2b. Custom configuration:
 
 If you'd like complete control of the produced markup then you can create custom templates like this:
 
@@ -119,34 +121,56 @@ new WeatherWonka(el, apiUrl, {
 ### 3. Add the weather container to your markup
 
 Add the container with the data-weather selector and the inner html will be replaced with the weather markup.<br/>
-In this case, we'll be linking to a weather page when the weather is selected and if JavaScript is disabled, the user will see a plain link instead:
+In this example I'm providing a link to a weather page when the weather is selected:
 
 ```html
 <a href="#" data-weather>View the weather</a>
 ```
 
-### 4. Style the markup
+### 4. Import the default SCSS
 
-#### SCSS
-
-Either use the default SCSS styles as a starting point:
+Import the default SCSS styles as a starting point:
 
 ```scss
 @import 'weather-wonka/src/styles';
 ```
-Or write custom styles for to suit the markup.
 
-#### Icons
+Alternately you can style the markup as you wish.
 
-**The default templates assume you're using a SVG icon sprite within your markup.**<br>
-We've included [some icons (sprite included) to get you started](https://raw.githubusercontent.com/simple-integrated-marketing/weather-wonka/master/icon-examples.zip) but you can define your own custom icons.
+### 5. Add the default icons
+
+Included is a set of free weather icons within an icon sprite.
+
+There's two options here, you can either:
+
+### 5a. Using TWIG templates?
+
+Include [weather-icons.twig](https://raw.githubusercontent.com/simple-integrated-marketing/weather-wonka/master/weather-icons.twig.zip) into your markup:
+
+```twig
+<body>
+    {% include 'weather-icons.twig' %}
+    ...
+</body>
+```
+
+### 5b. Or insert the SVG sprite with JavaScript
+
+Use JavaScipt to insert the [SVG sprite](https://raw.githubusercontent.com/simple-integrated-marketing/weather-wonka/master/weather-icons.svg.zip) at the top of the `<body>...</body>`.
+
+## Customising icons
+
+Add your own custom icons by replacing the SVG symbols within the icon sprite.
 
 ## Demo
 
-1. Add your Willy Weather API key within `weather-wonka/src/demo.html`
-2. `npm run build`
-3. `npm start`
+Take a look at the demo - you'll need a [Willy Weather API key](https://www.willyweather.com.au/api/register.html):
+
+1. Add your key within:<br>
+`./node_modules/weather-wonka/src/demo.html`
+2. cd into `./node_modules/weather-wonka`
+3. Run `npm install && npm start`
 
 ## Credits
 
-Weather Wonka is created by [@benrogerson](https://twitter.com/benrogerson) @ [Simple](<[Simple](https://simple.com.au)>).
+Weather Wonka is created by [Simple](<[Simple](https://simple.com.au)>).
